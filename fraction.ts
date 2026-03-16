@@ -58,16 +58,6 @@ export class Fraction {
   }
 }
 
-Deno.test("1/2 ÷ 1/4 = 2", () => {
-  // Arrange
-  const left = new Fraction(1, 2);
-  const right = new Fraction(1, 4);
 
-  // Act
-  left.divide(right);
-
-  // Assert
-  assertAlmostEquals(left.toFloat(0.01), 2.0);
-});
 
 
