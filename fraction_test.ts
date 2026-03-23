@@ -2,71 +2,71 @@ import { assertAlmostEquals, assertEquals } from "@std/assert";
 import { Fraction } from "./fraction.ts";
 
 Deno.test("fraction of 1/1 is 1.0", () => {
-  // Arrange
+  // arrange
   const fraction = new Fraction(1, 1);
 
-  // Act
+  // act
   const float = fraction.toFloat(0.1);
 
-  // Assert
+  // assert
   assertEquals(float, 1.0);
 });
 
 Deno.test("fraction of 2/3 is roughly 0.67", () => {
-  // Arrange
+  // arrange
   const fraction = new Fraction(2, 3);
 
-  // Act
+  // act
   const float = fraction.toFloat(0.01);
 
-  // Assert
+  // assert
   assertAlmostEquals(float, 0.67);
 });
 
 Deno.test("1/3 + 2/6 = 2/3 is roughly 0.67", () => {
-  // Arrange
+  // arrange
   const left = new Fraction(1, 3);
   const right = new Fraction(2, 6);
 
-  // Act
+  // act
   left.add(right);
 
-  // Assert
+  // assert
   assertAlmostEquals(left.toFloat(0.01), 0.67);
 });
 
 Deno.test("1/2 + 1/2 = 0", () => {
-  // Arrange
+  // arrange
   const left = new Fraction(1, 2);
   const right = new Fraction(1, 2);
 
-  // Act
+  // act
   left.subtract(right);
 
-  // Assert
+  // assert
   assertEquals(left.toFloat(0.01), 0);
 });
 
 Deno.test("1/2 * 1/2 = 0.25", () => {
-  // Arrange
+  // arrange
   const left = new Fraction(1, 2);
   const right = new Fraction(1, 2);
 
-  // Act
+  // act
   left.multiply(right);
 
-  // Assert
+  // assert
   assertEquals(left.toFloat(0.01), 0.25);
 });
 
 Deno.test("1/2 : 1/2 = 1.0", () => {
-  // Arrange
+  // arrange
   const left = new Fraction(1, 2);
   const right = new Fraction(1, 2);
 
-  // Act
+  // act
   left.divide(right);
 
-  // Assert
+  // assert
   assertEquals(left.toFloat(0.01), 1.0);
 });
